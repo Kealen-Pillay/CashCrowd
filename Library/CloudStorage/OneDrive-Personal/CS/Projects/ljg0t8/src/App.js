@@ -8,17 +8,11 @@ function Square({ value, onSquareClick }) {
     </button>
   )
 }
+function Board({ xIsNext, squares, onPlay }) {
 
-export default function Board() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = "Winner: " + winner;
-  } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
-  }
+  // const [xIsNext, setXIsNext] = useState(true);
+  // const [squares, setSquares] = useState(Array(9).fill(null));
+
   function handleClick(i) {
     if (squares[i] || calculateWinner(squares)) {
       console.log(squares[i]);
@@ -31,9 +25,18 @@ export default function Board() {
       nextSquares[i] = "O";
     }
     // nextSquares[i] = "X";
-    setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    // setSquares(nextSquares);
+    // setXIsNext(!xIsNext);
+    onPlay(nextSquares);
   }
+  const winner = calculateWinner(squares);
+  let status;
+  if (winner) {
+    status = "Winner: " + winner;
+  } else {
+    status = "Next player: " + (xIsNext ? "X" : "O");
+  }
+
   return (
     <>
       <div className="status">{status}</div>
@@ -73,4 +76,52 @@ function calculateWinner(squares) {
     }
   }
   return null;
+}
+export default function Game() {
+  // const [xIsNext, setXIsNext] = useState(true);
+  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [currentMove, setCurrentMove] = useState(0);
+  const xIsNext = currentMove % 2 === 0;
+  const currentSquares = history[currentMove];
+
+  function handlePlay(nextSquares) {
+    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+    setHistory(nextHistory);
+    setCurrentMove(nextHistory.length - 1);
+    // setXIsNext(!xIsNext);
+  }
+
+  function jumpTo(nextMove) {
+    setCurrentMove(nextMove);
+    // setXIsNext(nextMove % 2 === 0);
+  }
+  // 在你的代码中，`map` 方法用于遍历 `history` 数组，它接受一个函数作为参数，这个函数会被应用在 `history` 数组的每一个元素上。
+
+  // 这个函数可以接受两个参数，第一个参数是数组的当前元素（在这个例子中，就是 `squares`），第二个参数是当前元素的索引（在这个例子中，就是 `move`）。索引是从0开始的，对应于数组中的每一个元素。
+
+  // 所以，在这段代码中，`move` 是数组 `history` 的每一个元素（也就是 `squares`）在数组中的索引。这个索引也正好对应了每一步的序号，因为在游戏中的每一步都会向 `history` 数组添加一个新的元素。因此，在这个上下文中，`move` 可以被理解为步骤的序号。
+  const moves = history.map((squares, move) => {
+    let description;
+    if (move > 0) {
+      description = 'Go to move #' + move;
+    } else {
+      description = 'Go to game start';
+    }
+    return (
+      <li key={move}>
+        <button onClick={() => jumpTo(move)}>{description}</button>
+      </li>
+    );
+  });
+
+  return (
+    <div className="game">
+      <div className="game-board">
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+      </div>
+      <div className="game-info">
+        <ol>{moves}</ol>
+      </div>
+    </div>
+  );
 }
