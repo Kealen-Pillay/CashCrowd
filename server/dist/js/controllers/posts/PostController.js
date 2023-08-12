@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPosts = void 0;
+exports.addPost = exports.getPosts = void 0;
 const post_1 = __importDefault(require("../../models/post"));
 const getPosts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -34,7 +34,7 @@ const addPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             message: body.message,
             like_count: (_a = body.like_count) !== null && _a !== void 0 ? _a : 0
         });
-        const newPost = yield post_1.default.save();
+        const newPost = yield post.save();
         res.status(201).json({
             message: "Post Submitted",
             post: newPost
@@ -44,4 +44,5 @@ const addPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         console.log(error);
     }
 });
+exports.addPost = addPost;
 //# sourceMappingURL=PostController.js.map
