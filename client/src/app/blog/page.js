@@ -4,9 +4,27 @@ import {useState} from "react";
 
 export default function Blog() {
     const [discussionShow, setDiscussionShow] = useState(false)
+    const [company, setCompany] = useState("")
+    const [message, setMessage] = useState("")
 
     const displayDiscussionModal = (val) => {
         setDiscussionShow(val)
+    }
+
+    const onCompanyChange = (e) => {
+        e.preventDefault()
+        setCompany(e.target.value)
+    }
+
+    const onMessageChange = (e) => {
+        e.preventDefault()
+        setMessage(e.target.value)
+    }
+
+    const handleSubmit = () => {
+        setCompany("")
+        setMessage("")
+        displayDiscussionModal(false)
     }
 
     return (
@@ -30,15 +48,18 @@ export default function Blog() {
                         <h1 className="font-bold text-center text-2xl py-5 text-black w-full">New Discussion</h1>
                         <div className="flex flex-col items-center w-full h-full">
                             <div className="my-4 w-full flex justify-center">
-                                <input className="pl-2 rounded h-12 w-3/5" type="text" placeholder="Company"/>
+                                <input value={company} onChange={onCompanyChange}
+                                       className="pl-2 rounded h-12 w-3/5 text-black"
+                                       type="text" placeholder="Company"/>
                             </div>
                             <div className="my-4 w-full flex justify-center">
-                                <textarea className="pl-2 rounded h-20 pt-2 w-3/5" placeholder="Message"/>
+                                <textarea value={message} onChange={onMessageChange}
+                                          className="pl-2 rounded h-20 pt-2 w-3/5 text-black" placeholder="Message"/>
                             </div>
                             <div className="flex flex-row justify-between w-1/2 font-bold mt-4">
                                 <div className="text-black border rounded-full py-3 px-8 border-black hover:bg-white">
                                     <button className="hover:scale-105"
-                                            onClick={() => displayDiscussionModal(false)}>Submit
+                                            onClick={() => handleSubmit()}>Submit
                                     </button>
                                 </div>
                                 <div className="text-black border rounded-full py-3 px-8 border-black hover:bg-white">
@@ -50,29 +71,7 @@ export default function Blog() {
                         </div>
                     </div>
                 ) : (
-                    <div
-                        className="hidden absolute flex-col rounded bg-[#FCB52C] flex justify-start w-1/2 h-1/2 bsolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <h1 className="font-bold text-center text-2xl py-5 text-black w-full">New Discussion</h1>
-                        <div className="flex flex-col items-center w-full h-full">
-                            <div className="my-4 w-full flex justify-center">
-                                <input className="pl-2 rounded h-12 w-3/5" type="text" placeholder="Company"/>
-                            </div>
-                            <div className="my-4 w-full flex justify-center">
-                                <textarea className="pl-2 rounded h-20 pt-2 w-3/5" placeholder="Message"/>
-                            </div>
-                            <div className="flex flex-row justify-between w-1/2 font-bold mt-4">
-                                <div className="text-black border rounded-full py-3 px-8 border-black hover:bg-white">
-                                    <button className="hover:scale-105 text-black border rounded-full py-3 px-8 border-black hover:bg-white"
-                                            onClick={() => displayDiscussionModal(false)}>Submit
-                                    </button>
-                                </div>
-                                <div className="text-black border rounded-full py-3 px-8 border-black hover:bg-white">
-                                    <button className="hover:scale-105"
-                                            onClick={() => displayDiscussionModal(false)}>Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="hidden">
                     </div>
                 )
             }
