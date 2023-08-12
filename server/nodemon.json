@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGO_USER": "cash-admin",
+    "MONGO_PASSWORD": "WWFlpoqH10eXRc1e",
+    "MONGO_DB": "cashcrowd"
+  }
+}

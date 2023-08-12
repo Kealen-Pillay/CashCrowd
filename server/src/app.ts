@@ -1,6 +1,6 @@
 import cors from "cors";
 import express, {Express, Request, Response} from "express";
-import router from "../src/routes/routes";
+import router from "./routes/routes";
 import mongoose, {ConnectOptions} from "mongoose";
 
 const app: Express = express();
@@ -10,7 +10,6 @@ app.use(cors());
 app.use(router);
 
 const uri: string = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cashcrowd.rd9wvq4.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`;
-
 const options = {
     useNewURLParser: true,
     useUnifiedTopology: true,
