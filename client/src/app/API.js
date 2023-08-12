@@ -1,7 +1,6 @@
 import axios from "axios"
 
-// const baseURL = "https://cash-crowd.vercel.app"
-const baseURL = "http://localhost:5000"
+const baseURL = "https://cash-crowd.vercel.app"
 const getPosts = async () => {
     try {
         const posts = await axios.get(baseURL + "/posts")
