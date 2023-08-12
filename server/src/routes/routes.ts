@@ -1,4 +1,4 @@
-import {Router} from "express";
+import {Request, Router} from "express";
 import {getProviders} from "../controllers/providers/ProviderController";
 import {addPost, getPosts} from "../controllers/posts/PostController";
 
@@ -17,5 +17,9 @@ router.get("/providers", getProviders)
 router.get("/posts", getPosts)
 
 router.post("/add-post", addPost)
+
+router.post('/test', (req, res) => {
+    res.send('POST request to the homepage' + req.body)
+})
 
 export default router

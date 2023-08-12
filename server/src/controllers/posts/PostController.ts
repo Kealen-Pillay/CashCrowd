@@ -15,10 +15,10 @@ const addPost = async (req: Request, res: Response): Promise<void> => {
     try {
         const body = req.body as Pick<IPost, "username" | "company" | "message" | "like_count">
         const post: IPost = new Post({
-            username: body.username,
-            company: body.company,
-            message: body.message,
-            like_count: body.like_count ?? 0
+            "username": body.username ?? "user123",
+            "company": body.company ?? "company",
+            "message": body.message ?? "message",
+            "like_count": body.like_count ?? 0
         })
 
         const newPost: IPost = await post.save()

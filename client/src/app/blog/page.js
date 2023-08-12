@@ -1,6 +1,7 @@
 "use client"
 import Navbar from "@/app/Navbar";
 import {useState} from "react";
+import {addPost, getPosts} from "@/app/API";
 
 export default function Blog() {
     const [discussionShow, setDiscussionShow] = useState(false)
@@ -22,8 +23,17 @@ export default function Blog() {
     }
 
     const handleSubmit = () => {
+        const formData = {
+            username: "user123",
+            company: company,
+            message: message,
+            like_count: 4
+        }
         setCompany("")
         setMessage("")
+        addPost(formData).then(() => {
+            console.log("added post:" + formData)
+        })
         displayDiscussionModal(false)
     }
 

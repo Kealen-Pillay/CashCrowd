@@ -25,14 +25,14 @@ const getPosts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.getPosts = getPosts;
 const addPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
+    var _a, _b, _c, _d;
     try {
         const body = req.body;
         const post = new post_1.default({
-            username: body.username,
-            company: body.company,
-            message: body.message,
-            like_count: (_a = body.like_count) !== null && _a !== void 0 ? _a : 0
+            "username": (_a = body.username) !== null && _a !== void 0 ? _a : "user123",
+            "company": (_b = body.company) !== null && _b !== void 0 ? _b : "company",
+            "message": (_c = body.message) !== null && _c !== void 0 ? _c : "message",
+            "like_count": (_d = body.like_count) !== null && _d !== void 0 ? _d : 0
         });
         const newPost = yield post.save();
         res.status(201).json({

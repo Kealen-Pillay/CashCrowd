@@ -13,5 +13,8 @@ router.get("/providers", ProviderController_1.getProviders);
  */
 router.get("/posts", PostController_1.getPosts);
 router.post("/add-post", PostController_1.addPost);
+router.post('/test', (req, res) => {
+    res.send('POST request to the homepage' + req.body);
+});
 exports.default = router;
 //# sourceMappingURL=routes.js.map
