@@ -1,10 +1,10 @@
 import Link from "next/link";
+import Navbar from "@/app/Navbar";
 
 export default function Page() {
     return (
         <div>
-            <h1>Blog</h1>
-            <Link href="/">Home</Link>
+            <Navbar />
         </div>
     )
 }
