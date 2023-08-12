@@ -1,7 +1,7 @@
 import cors from "cors";
-import express, { Express, Request, Response } from "express";
+import express, {Express, Request, Response} from "express";
 import router from "../src/routes/routes";
-import mongoose, { ConnectOptions } from "mongoose";
+import mongoose, {ConnectOptions} from "mongoose";
 
 const app: Express = express();
 const PORT: string | number = process.env.PORT || 5000;

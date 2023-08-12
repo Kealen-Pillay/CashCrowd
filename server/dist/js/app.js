@@ -5,12 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
-// import router from "./routes";
+const routes_1 = __importDefault(require("../src/routes/routes"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 5000;
 app.use((0, cors_1.default)());
-// app.use(router);
+app.use(routes_1.default);
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cashcrowd.rd9wvq4.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`;
 const options = {
     useNewURLParser: true,
