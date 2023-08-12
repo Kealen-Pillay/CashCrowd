@@ -1,9 +1,8 @@
-import Link from "next/link";
 import Navbar from "@/app/Navbar";
 
-export default function Page() {
+export default function Blog() {
     return (
-        <div>
+        <div className="bg-white h-screen">
             <Navbar />
         </div>
     )
