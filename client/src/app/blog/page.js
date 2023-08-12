@@ -1,10 +1,12 @@
+import Navbar from "@/Navbar";
 import Link from "next/link";
 
-export default function Page() {
+export default function Blog() {
     return (
-        <div>
-            <h1>Blog</h1>
-            <Link href="/">Home</Link>
-        </div>
+        <>
+            <div>
+                <Navbar/>
+            </div>
+        </>
     )
 }

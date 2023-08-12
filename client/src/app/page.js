@@ -1,12 +1,12 @@
 import Link from "next/link";
+import Navbar from "@/Navbar";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <>
             <div>
-                <h1>CashCrowd</h1>
-                <Link href="/blog">Blog</Link>
+                <Navbar/>
             </div>
-        </main>
+        </>
     )
 }
