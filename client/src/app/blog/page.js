@@ -14,12 +14,13 @@ export default function Blog() {
         getPosts()
             .then((posts) => {
                 setReviews(posts.data.posts)
-            }).then(() => console.log(reviews))
+            })
             .catch((err) => console.log(err))
     }, []);
 
     const displayDiscussionModal = (val) => {
         setDiscussionShow(val)
+        console.log(discussionShow)
     }
 
     const onCompanyChange = (e) => {
@@ -48,42 +49,48 @@ export default function Blog() {
         getPosts()
             .then((posts) => {
                 setReviews(posts.data.posts)
-            }).then(() => console.log(reviews))
+            })
             .catch((err) => console.log(err))
     }
 
     return (
-        <div className="bg-white h-100vh relative">
-            <Navbar/>
-            <div className="w-screen my-10 flex justify-center font-bold text-black">
-                <h3 className="px-5 hover:cursor-pointer">Popular Discussions</h3>
-                <h3 className="px-5 text-gray-400 hover:cursor-pointer">Recent</h3>
-            </div>
-            <div className="w-screen flex justify-center">
-                <button
-                    className="bg-[#FCB52C] p-3 rounded-full font-bold hover:scale-105 hover:cursor-pointer"
-                    onClick={() => displayDiscussionModal(true)}>
-                    Start a Discussion
-                </button>
+        <>
+            <div className="bg-white h-100vh relative">
+                <Navbar/>
+                <div className="w-screen my-10 flex justify-center font-bold text-black">
+                    <h3 className="px-5 hover:cursor-pointer">Popular Discussions</h3>
+                    <h3 className="px-5 text-gray-400 hover:cursor-pointer">Recent</h3>
+                </div>
+                <div className="w-screen flex justify-center">
+                    <button
+                        className="bg-[#FCB52C] p-3 rounded-full font-bold hover:scale-105 hover:cursor-pointer"
+                        onClick={() => displayDiscussionModal(true)}>
+                        Start a Discussion
+                    </button>
 
-            </div>
-            <div className="grid grid-cols-4 mt-10 px-10">
-                {reviews && (
-                    reviews.map((review, index) => {
-                        return (
-                            <div key={index}
-                                 className="bg-white border border-black px-2 py-2 rounded w-72 h-fit text-black font-bold m-2">
-                                <h1>User: {review.username}</h1>
-                                <p>Company: {review.company}</p>
-                                <p className="font-light">Review: {review.message}</p>
-                                <div className="flex flex-row mt-2">
-                                    <FavoriteIcon sx={{color: "red"}}/>
-                                    <p className="px-1">{review.like_count}</p>
+                </div>
+                <div className="grid grid-cols-4 mt-10 px-10 relative h-100vh">
+                    {reviews && (
+                        reviews.map((review, index) => {
+                            return (
+                                <div key={index}
+                                     className="bg-white border border-black px-2 py-2 rounded w-72 h-fit text-black font-bold m-2">
+                                    <h1 className="py-2">User: {review.username}</h1>
+                                    <div className="flex flex-row py-2">
+                                        <span className="font-bold">Company:</span>
+                                        <span className="font-light pl-1">{review.company}</span>
+                                    </div>
+                                    <p className="font-light">Review: {review.message}</p>
+                                    <div className="flex flex-row mt-2">
+                                        <FavoriteIcon sx={{color: "red"}}/>
+                                        <p className="px-1">{review.like_count}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                    })
-                )}
+                            )
+                        })
+                    )}
+                </div>
+
             </div>
             {
                 discussionShow ? (
@@ -101,12 +108,14 @@ export default function Blog() {
                                           className="pl-2 rounded h-20 pt-2 w-3/5 text-black" placeholder="Message"/>
                             </div>
                             <div className="flex flex-row justify-between w-1/2 font-bold mt-4">
-                                <div className="text-black border rounded-full py-3 px-8 border-black hover:bg-white">
+                                <div
+                                    className="text-black border rounded-full py-3 px-8 border-black hover:bg-white">
                                     <button className="hover:scale-105"
                                             onClick={() => handleSubmit()}>Submit
                                     </button>
                                 </div>
-                                <div className="text-black border rounded-full py-3 px-8 border-black hover:bg-white">
+                                <div
+                                    className="text-black border rounded-full py-3 px-8 border-black hover:bg-white">
                                     <button className="hover:scale-105"
                                             onClick={() => displayDiscussionModal(false)}>Cancel
                                     </button>
@@ -119,7 +128,6 @@ export default function Blog() {
                     </div>
                 )
             }
-
-        </div>
+        </>
     )
 }
