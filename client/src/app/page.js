@@ -137,10 +137,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <footer className="bg-gray-800 text-white py-2 text-center">
-        <p>Web Development &copy; 2018</p>
-      </footer>
     </div>
   )
 }
