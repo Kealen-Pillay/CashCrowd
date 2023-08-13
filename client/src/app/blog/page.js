@@ -14,7 +14,7 @@ export default function Blog() {
             .then((posts) => {
                 setReviews(posts.data.posts)
             }).then(() => console.log(reviews))
-            // .catch((err) => console.log(err))
+            .catch((err) => console.log(err))
     }, []);
 
     const displayDiscussionModal = (val) => {
@@ -64,17 +64,18 @@ export default function Blog() {
                     onClick={() => displayDiscussionModal(true)}>
                     Start a Discussion
                 </button>
+
             </div>
-            <div>
-                {reviews && (
-                    reviews.map((review) => {
-                        return (
-                            <div key={review._id}>
-                                <h1>review.username</h1>
-                            </div>
-                        )
-                    })
-                )}
+            <div className="flex flex-row justify-start">
+                    {reviews && (
+                        reviews.map((review, index) => {
+                            return (
+                                <div key={index} className="bg-amber-200 border rounded w-20 h-20">
+                                    <h1>{review.username}</h1>
+                                </div>
+                            )
+                        })
+                    )}
             </div>
             {
                 discussionShow ? (
