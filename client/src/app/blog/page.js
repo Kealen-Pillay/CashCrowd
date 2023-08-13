@@ -2,6 +2,7 @@
 import Navbar from "@/app/Navbar";
 import {useEffect, useState} from "react";
 import {addPost, getPosts} from "@/app/API";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function Blog() {
     const [discussionShow, setDiscussionShow] = useState(false)
@@ -47,7 +48,7 @@ export default function Blog() {
         getPosts()
             .then((posts) => {
                 setReviews(posts.data.posts)
-            })
+            }).then(() => console.log(reviews))
             .catch((err) => console.log(err))
     }
 
@@ -67,17 +68,22 @@ export default function Blog() {
 
             </div>
             <div className="grid grid-cols-4 mt-10 px-10">
-                    {reviews && (
-                        reviews.map((review, index) => {
-                            return (
-                                <div key={index} className="bg-white border border-black px-2 py-2 rounded w-72 h-fit text-black font-bold m-2">
-                                    <h1>User: {review.username}</h1>
-                                    <p>Company: {review.company}</p>
-                                    <p className="font-light">Review: {review.message}</p>
+                {reviews && (
+                    reviews.map((review, index) => {
+                        return (
+                            <div key={index}
+                                 className="bg-white border border-black px-2 py-2 rounded w-72 h-fit text-black font-bold m-2">
+                                <h1>User: {review.username}</h1>
+                                <p>Company: {review.company}</p>
+                                <p className="font-light">Review: {review.message}</p>
+                                <div className="flex flex-row mt-2">
+                                    <FavoriteIcon sx={{color: "red"}}/>
+                                    <p className="px-1">{review.like_count}</p>
                                 </div>
-                            )
-                        })
-                    )}
+                            </div>
+                        )
+                    })
+                )}
             </div>
             {
                 discussionShow ? (
