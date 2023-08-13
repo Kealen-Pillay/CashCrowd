@@ -23,17 +23,6 @@ export default function Navbar() {
               Broadband
             </Link>
           </div>
-          <div className="user_image">
-            <img
-              src="image/avatar1.svg"
-              alt="user"
-              className="w-10 h-10 rounded-full"
-            />
-          </div>
-          <div className="user-dropdown whitespace-normal">
-            <span className="username ">John Doe</span>
-            {/* Add drop down feature later */}
-          </div>
         </div>
       </div>
     </>
