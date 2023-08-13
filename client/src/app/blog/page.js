@@ -52,7 +52,7 @@ export default function Blog() {
     }
 
     return (
-        <div className="bg-white h-screen relative">
+        <div className="bg-white h-100vh relative">
             <Navbar/>
             <div className="w-screen my-10 flex justify-center font-bold text-black">
                 <h3 className="px-5 hover:cursor-pointer">Popular Discussions</h3>
@@ -66,12 +66,14 @@ export default function Blog() {
                 </button>
 
             </div>
-            <div className="flex flex-row justify-start">
+            <div className="grid grid-cols-4 mt-10 px-10">
                     {reviews && (
                         reviews.map((review, index) => {
                             return (
-                                <div key={index} className="bg-amber-200 border rounded w-20 h-20">
-                                    <h1>{review.username}</h1>
+                                <div key={index} className="bg-white border border-black px-2 py-2 rounded w-72 h-fit text-black font-bold m-2">
+                                    <h1>User: {review.username}</h1>
+                                    <p>Company: {review.company}</p>
+                                    <p className="font-light">Review: {review.message}</p>
                                 </div>
                             )
                         })
