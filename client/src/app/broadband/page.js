@@ -1,21 +1,7 @@
 "use client"
 import Navbar from "@/app/Navbar";
-import {toast, ToastContainer} from "react-toastify";
 
 export default function Broadband() {
-
-    const showToast = () => {
-        toast.success("Plan Selected!", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        })
-    }
 
     return (
         <>
@@ -66,7 +52,7 @@ export default function Broadband() {
                         <div className="flex flex-row justify-between text-black pr-5">
                             <div
                                 className="shadow-2xl w-72 h-72 rounded-2xl bg-[#FCB52C] pl-3 pt-5 hover:scale-105 hover:border-black hover:border hover:cursor-pointer"
-                                onClick={showToast}>
+                            >
                                 <p className="text-sm pb-2">Fibre Starter</p>
                                 <h1 className="text-2xl font-bold pb-2">$85.00 / month</h1>
                                 <p className="font-bold text-white text-sm pb-2">Unlimited Fibre</p>
@@ -87,7 +73,7 @@ export default function Broadband() {
                             </div>
                             <div
                                 className="shadow-2xl w-72 h-72 rounded-2xl bg-white pl-3 pt-5 hover:scale-105 hover:border-black hover:border hover:cursor-pointer"
-                                onClick={showToast}>
+                            >
                                 <p className="text-sm pb-2">Fibre Starter</p>
                                 <h1 className="text-2xl font-bold pb-2">$55.00 / month</h1>
                                 <p className="font-bold text-black text-sm pb-2">Unlimited Fibre</p>
@@ -105,7 +91,7 @@ export default function Broadband() {
                             </div>
                             <div
                                 className="shadow-2xl w-72 h-72 rounded-2xl bg-white pl-3 pt-5 hover:scale-105 hover:border-black hover:border hover:cursor-pointer"
-                                onClick={showToast}>
+                            >
                                 <p className="text-sm pb-2">Everyday Wireless Plus</p>
                                 <h1 className="text-2xl font-bold pb-2">$45.00 / month</h1>
                                 <p className="font-bold text-black text-sm pb-2">Unlimited Data</p>
@@ -123,7 +109,7 @@ export default function Broadband() {
                             </div>
                             <div
                                 className="shadow-2xl w-72 h-72 rounded-2xl bg-white pl-3 pt-5 hover:scale-105 hover:border-black hover:border hover:cursor-pointer"
-                                onClick={showToast}>
+                            >
                                 <p className="text-sm pb-2">Everyday Wireless Plus</p>
                                 <h1 className="text-2xl font-bold pb-2">$60.00 / month</h1>
                                 <p className="font-bold text-black text-sm pb-2">Unlimited Data</p>
@@ -143,7 +129,6 @@ export default function Broadband() {
                     </div>
                 </div>
             </div>
-            <ToastContainer/>
         </>
     )
 }
