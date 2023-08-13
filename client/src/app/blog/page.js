@@ -141,7 +141,6 @@ export default function Blog() {
                     </div>
                 )
             }
-            <ToastContainer/>
         </>
     )
 }
