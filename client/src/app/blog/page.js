@@ -3,6 +3,8 @@ import Navbar from "@/app/Navbar";
 import {useEffect, useState} from "react";
 import {addPost, getPosts} from "@/app/API";
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Blog() {
     const [discussionShow, setDiscussionShow] = useState(false)
@@ -44,7 +46,16 @@ export default function Blog() {
         setMessage("")
         addPost(formData).then(() => {
             console.log("added post:" + formData)
-        })
+        }).then(() => toast.success("Post Added!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        }))
         displayDiscussionModal(false)
         getPosts()
             .then((posts) => {
@@ -128,6 +139,7 @@ export default function Blog() {
                     </div>
                 )
             }
+            <ToastContainer/>
         </>
     )
 }
