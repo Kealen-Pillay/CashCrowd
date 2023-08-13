@@ -46,10 +46,11 @@ export default function Home() {
                   <li>Free Installation</li>
                 </ul>
                 <div className="button mt-4">
-                  <Link legacyBehavior href="./broadband">
-                    <a className="px-6 py-3 text-white bg-yellow-500 rounded transition duration-300 hover:bg-gray-700 whitespace-normal">
-                      Check your address
-                    </a>
+                  <Link
+                    href="./broadband"
+                    className="px-6 py-3 text-white bg-yellow-500 rounded transition duration-300 hover:bg-gray-700 whitespace-normal"
+                  >
+                    Check out Deals
                   </Link>
                 </div>
               </div>
@@ -74,10 +75,11 @@ export default function Home() {
                   <li>Free Modem</li>
                 </ul>
                 <div className="button mt-4">
-                  <Link legacyBehavior href="./broadband">
-                    <a className="px-6 py-3 text-white bg-yellow-500 rounded transition duration-300 hover:bg-gray-700 whitespace-normal">
-                      Check your address
-                    </a>
+                  <Link
+                    href="./broadband"
+                    className="px-6 py-3 text-white bg-yellow-500 rounded transition duration-300 hover:bg-gray-700 whitespace-normal"
+                  >
+                    Check out Deals
                   </Link>
                 </div>
               </div>
@@ -104,10 +106,11 @@ export default function Home() {
                   <li>Free Installation</li>
                 </ul>
                 <div className="button mt-4">
-                  <Link legacyBehavior href="./broadband">
-                    <a className="px-6 py-3 text-white bg-yellow-500 rounded transition duration-300 hover:bg-gray-700 whitespace-normal">
-                      Check your address
-                    </a>
+                  <Link
+                    href="./broadband"
+                    className="px-6 py-3 text-white bg-yellow-500 rounded transition duration-300 hover:bg-gray-700 whitespace-normal"
+                  >
+                    Check out Deals
                   </Link>
                 </div>
               </div>
@@ -123,10 +126,12 @@ export default function Home() {
             </div>
 
             <div className="more flex-1 p-2">
-              <Link legacyBehavior href="./broadband">
-                <a className="px-6 py-3 text-white bg-yellow-500 rounded transition duration-300 hover:bg-gray-700">
-                  More
-                </a>
+              <Link
+                legacyBehavior
+                href="./broadband"
+                className="px-6 py-3 text-white bg-yellow-500 rounded transition duration-300 hover:bg-gray-700"
+              >
+                More
               </Link>
             </div>
           </div>
