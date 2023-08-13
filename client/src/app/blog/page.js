@@ -11,8 +11,16 @@ export default function Blog() {
     const [company, setCompany] = useState("")
     const [message, setMessage] = useState("")
     const [reviews, setReviews] = useState([])
+    const [newPost, setNewPost] = useState(false)
+    const [latestPost, setLatestPost] = useState({
+        username: "user1234",
+        company: "",
+        message: "",
+        like_count: 0
+    })
 
     useEffect(() => {
+        showNewPost(false)
         getPosts()
             .then((posts) => {
                 setReviews(posts.data.posts)
@@ -23,6 +31,11 @@ export default function Blog() {
     const displayDiscussionModal = (val) => {
         setDiscussionShow(val)
         console.log(discussionShow)
+    }
+
+    const showNewPost = (val) => {
+        setNewPost(val)
+        console.log(newPost)
     }
 
     const onCompanyChange = (e) => {
@@ -40,13 +53,14 @@ export default function Blog() {
             username: "user123",
             company: company,
             message: message,
-            like_count: 4
+            like_count: Math.round(Math.random() * (10) + 1)
         }
+        setLatestPost(formData)
         setCompany("")
         setMessage("")
         addPost(formData).then(() => {
             console.log("added post:" + formData)
-        }).then(() => toast.success("Post Added!", {
+        }).then(() => showNewPost(true)).then(() => toast.success("Post Added!", {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -74,13 +88,41 @@ export default function Blog() {
                 </div>
                 <div className="w-screen flex justify-center">
                     <button
-                        className="bg-[#FCB52C] p-3 rounded-full font-bold hover:scale-105 hover:cursor-pointer"
+                        className="bg-[#FCB52C] p-3 rounded-full font-bold hover:scale-105 hover:cursor-pointer mr-10"
                         onClick={() => displayDiscussionModal(true)}>
                         Start a Discussion
                     </button>
-
                 </div>
-                <div className="grid grid-cols-4 mt-10 px-10 relative h-100vh">
+                <div className="w-screen">
+                    {
+                        newPost ? (
+                            <>
+                                <h1 className="font-bold text-black text-2xl ml-10">Latest Post</h1>
+                                <div
+                                    className="ml-10 bg-white border border-black px-2 py-2 rounded w-72 h-fit text-black font-bold m-2">
+                                    <h1 className="py-2">User: User1234</h1>
+                                    <div className="flex flex-row py-2">
+                                        <span className="font-bold">Company:</span>
+                                        <span className="font-light pl-1">{latestPost.company}</span>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span>Review:</span>
+                                        <p className="font-light">{latestPost.message}</p>
+                                    </div>
+                                    <div className="flex flex-row mt-2">
+                                        <FavoriteIcon sx={{color: "red"}}/>
+                                        <p className="px-1">{latestPost.like_count}</p>
+                                    </div>
+                                </div>
+                            </>
+
+                        ) : (<div>
+
+                        </div>)
+                    }
+                </div>
+                <h1 className="font-bold text-black text-2xl ml-12 mt-4">All Posts</h1>
+                <div className="grid grid-cols-4 mt-6 px-10 relative h-100vh">
                     {reviews && (
                         reviews.map((review, index) => {
                             return (
