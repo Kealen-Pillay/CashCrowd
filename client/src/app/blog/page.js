@@ -1,12 +1,21 @@
 "use client"
 import Navbar from "@/app/Navbar";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {addPost, getPosts} from "@/app/API";
 
 export default function Blog() {
     const [discussionShow, setDiscussionShow] = useState(false)
     const [company, setCompany] = useState("")
     const [message, setMessage] = useState("")
+    const [reviews, setReviews] = useState([])
+
+    useEffect(() => {
+        getPosts()
+            .then((posts) => {
+                setReviews(posts.data.posts)
+            }).then(() => console.log(reviews))
+            // .catch((err) => console.log(err))
+    }, []);
 
     const displayDiscussionModal = (val) => {
         setDiscussionShow(val)
@@ -35,6 +44,11 @@ export default function Blog() {
             console.log("added post:" + formData)
         })
         displayDiscussionModal(false)
+        getPosts()
+            .then((posts) => {
+                setReviews(posts.data.posts)
+            })
+            .catch((err) => console.log(err))
     }
 
     return (
@@ -50,6 +64,17 @@ export default function Blog() {
                     onClick={() => displayDiscussionModal(true)}>
                     Start a Discussion
                 </button>
+            </div>
+            <div>
+                {reviews && (
+                    reviews.map((review) => {
+                        return (
+                            <div key={review._id}>
+                                <h1>review.username</h1>
+                            </div>
+                        )
+                    })
+                )}
             </div>
             {
                 discussionShow ? (
