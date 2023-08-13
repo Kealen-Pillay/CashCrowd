@@ -43,19 +43,19 @@ export default function Broadband() {
                             <button>Unlimited Data</button>
                         </div>
                         <div
-                            className="font-bold rounded-full bg-[#FCB52C] border px-5 py-2 mr-2 hover:scale-105 border-black">
+                            className="font-bold rounded-full text-black bg-white border px-5 py-2 mr-2 hover:scale-105 border-black">
                             <button>Fibre</button>
                         </div>
                         <div
-                            className="font-bold rounded-full bg-[#FCB52C] border px-5 py-2 mr-2 hover:scale-105 border-black">
+                            className="font-bold rounded-full text-black bg-white border px-5 py-2 mr-2 hover:scale-105 border-black">
                             <button>Free Router</button>
                         </div>
                         <div
-                            className="font-bold rounded-full bg-[#FCB52C] border px-5 py-2 mr-2 hover:scale-105 border-black">
+                            className="font-bold rounded-full text-black bg-white border px-5 py-2 mr-2 hover:scale-105 border-black">
                             <button>Bundle Power</button>
                         </div>
                         <div
-                            className="font-bold rounded-full bg-[#FCB52C] border px-5 py-2 mr-2 hover:scale-105 border-black">
+                            className="font-bold rounded-full text-black bg-white border px-5 py-2 mr-2 hover:scale-105 border-black">
                             <button>Homeline</button>
                         </div>
                     </div>
@@ -86,11 +86,11 @@ export default function Broadband() {
                                 </ul>
                             </div>
                             <div
-                                className="shadow-2xl w-72 h-72 rounded-2xl bg-blue-300 pl-3 pt-5 hover:scale-105 hover:border-black hover:border hover:cursor-pointer"
+                                className="shadow-2xl w-72 h-72 rounded-2xl bg-white pl-3 pt-5 hover:scale-105 hover:border-black hover:border hover:cursor-pointer"
                                 onClick={showToast}>
                                 <p className="text-sm pb-2">Fibre Starter</p>
                                 <h1 className="text-2xl font-bold pb-2">$55.00 / month</h1>
-                                <p className="font-bold text-white text-sm pb-2">Unlimited Fibre</p>
+                                <p className="font-bold text-black text-sm pb-2">Unlimited Fibre</p>
                                 <ul className="list-disc pl-5 pb-5">
                                     <li>
                                         Home phone connection $20/month
@@ -104,11 +104,11 @@ export default function Broadband() {
                                 </ul>
                             </div>
                             <div
-                                className="shadow-2xl w-72 h-72 rounded-2xl bg-emerald-200 pl-3 pt-5 hover:scale-105 hover:border-black hover:border hover:cursor-pointer"
+                                className="shadow-2xl w-72 h-72 rounded-2xl bg-white pl-3 pt-5 hover:scale-105 hover:border-black hover:border hover:cursor-pointer"
                                 onClick={showToast}>
                                 <p className="text-sm pb-2">Everyday Wireless Plus</p>
                                 <h1 className="text-2xl font-bold pb-2">$45.00 / month</h1>
-                                <p className="font-bold text-white text-sm pb-2">Unlimited Data</p>
+                                <p className="font-bold text-black text-sm pb-2">Unlimited Data</p>
                                 <ul className="list-disc pl-5 pb-5">
                                     <li>
                                         HD Video Streaming
@@ -122,11 +122,11 @@ export default function Broadband() {
                                 </ul>
                             </div>
                             <div
-                                className="shadow-2xl w-72 h-72 rounded-2xl bg-fuchsia-300 pl-3 pt-5 hover:scale-105 hover:border-black hover:border hover:cursor-pointer"
+                                className="shadow-2xl w-72 h-72 rounded-2xl bg-white pl-3 pt-5 hover:scale-105 hover:border-black hover:border hover:cursor-pointer"
                                 onClick={showToast}>
                                 <p className="text-sm pb-2">Everyday Wireless Plus</p>
                                 <h1 className="text-2xl font-bold pb-2">$60.00 / month</h1>
-                                <p className="font-bold text-white text-sm pb-2">Unlimited Data</p>
+                                <p className="font-bold text-black text-sm pb-2">Unlimited Data</p>
                                 <ul className="list-disc pl-5 pb-5">
                                     <li>
                                         HD Video Streaming
