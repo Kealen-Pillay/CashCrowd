@@ -91,7 +91,10 @@ export default function Blog() {
                                         <span className="font-bold">Company:</span>
                                         <span className="font-light pl-1">{review.company}</span>
                                     </div>
-                                    <p className="font-light">Review: {review.message}</p>
+                                    <div className="flex flex-col">
+                                        <span>Review:</span>
+                                        <p className="font-light">{review.message}</p>
+                                    </div>
                                     <div className="flex flex-row mt-2">
                                         <FavoriteIcon sx={{color: "red"}}/>
                                         <p className="px-1">{review.like_count}</p>
@@ -101,7 +104,6 @@ export default function Blog() {
                         })
                     )}
                 </div>
-
             </div>
             {
                 discussionShow ? (
