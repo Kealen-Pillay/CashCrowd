@@ -110,6 +110,76 @@ export default function Home() {
               </Link>
             </div>
           </div>
+          <div className="bottom flex justify-between items-center">
+            <div className="crowd_review mb-5">
+              <h1 className="text-4xl font-bold">Crowd Reviews</h1>
+            </div>
+            <div className="comments_collection flex justify-between">
+              <div className="comment flex-1 m-2.5 p-5 bg-white shadow-md rounded">
+                <div className="user_information flex items-center mb-2.5">
+                  <div className="user_image mr-auto">
+                    <img src="image/avatar3.svg" alt="user" />
+                  </div>
+                  <div className="simple_information">
+                    <p className="user_brand">kealen.p200 liked Spark:</p>
+                    <p className="comment_title">Live Chat is Great!</p>
+                  </div>
+                </div>
+                <div className="comment_content">
+                  <p>
+                    Spark's live chat is great! I was able to get my problem solved in a matter of minutes. I
+                    didn't have to wait on hold or anything. I would recommend Spark to anyone who wants a
+                    reliable internet service provider.
+                  </p>
+                </div>
+                <div className="rating_star">
+                  <img className="" src="image/4stars.png" alt="star" />
+                </div>
+              </div>
+              <div className="comment">
+                <div className="user_information">
+                  <div className="user_image">
+                    <img src="image/avatar2.svg" alt="user" />
+                  </div>
+                  <div className="simple_information">
+                    <p className="user_brand">kealen.p200 liked Spark:</p>
+                    <p className="comment_title">Live Chat is Great!</p>
+                  </div>
+                </div>
+                <div className="comment_content">
+                  <p>
+                    Spark's live chat is great! I was able to get my problem solved in a matter of minutes. I
+                    didn't have to wait on hold or anything. I would recommend Spark to anyone who wants a
+                    reliable internet service provider.
+                  </p>
+                </div>
+                <div className="rating_star">
+                  <img src="image/4stars.png" alt="star" />
+                </div>
+              </div>
+              <div className="comment">
+                <div className="user_information">
+                  <div className="user_image">
+                    <img src="image/avatar4.svg" alt="user" />
+                  </div>
+                  <div className="simple_information">
+                    <p className="user_brand">kealen.p200 liked Spark:</p>
+                    <p className="comment_title">Live Chat is Great!</p>
+                  </div>
+                </div>
+                <div className="comment_content">
+                  <p>
+                    Spark's live chat is great! I was able to get my problem solved in a matter of minutes. I
+                    didn't have to wait on hold or anything. I would recommend Spark to anyone who wants a
+                    reliable internet service provider.
+                  </p>
+                </div>
+                <div className="rating_star">
+                  <img src="image/5stars.png" alt="star" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

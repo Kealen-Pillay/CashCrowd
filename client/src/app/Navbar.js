@@ -17,6 +17,13 @@ export default function Navbar() {
                     <div className="text-black">
                         <Link href="/broadband" className="hover:text-[#FCB52C]">Broadband</Link>
                     </div>
+                    <div className="user-dropdown">
+                        <span className="username">John Doe</span>
+                        {/* Add drop down feature later */}
+                    </div>
+                    <div className="user_image">
+                        <img src="image/avatar1.svg" alt="user" className="w-10 h-10 rounded-full" />
+                    </div>
                 </div>
             </div>
         </>
